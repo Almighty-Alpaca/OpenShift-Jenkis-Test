@@ -1,0 +1,40 @@
+plugins {
+	id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '1.2.3'
+	
+    id 'idea'
+    id 'eclipse'
+}
+
+// The java version
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+// Add your dependencies here
+dependencies {
+    compile "net.dv8tion:JDA:2.1.1_311"
+}
+
+// Change this to the name of your main class
+mainClassName = 'com.example.jda.Bot'
+
+// Tell gradle to use UTF-8
+compileJava.options.encoding = 'UTF-8'
+
+idea.module {
+	downloadJavadoc = true
+}
+
+eclipse.classpath {
+    downloadJavadoc = true
+    downloadSources = true
+}
+
+task wrapper(type: Wrapper) { // This task is to specify the gradle version
+    gradleVersion = '2.14'
+}
